@@ -11,6 +11,7 @@ window.Vue = require('vue');
 
 import VueRouter from 'vue-router'
 import { Form, HasError, AlertError } from 'vform'
+import moment from 'moment'
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
@@ -27,6 +28,13 @@ let routes = [
     routes // short for `routes: routes`
   })
 
+  Vue.filter('upTxt', function(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1)
+  })
+
+  Vue.filter('myDate', function(cretaed) {
+    return moment(cretaed).format("MMM Do YY");
+  })
 
 
 /**

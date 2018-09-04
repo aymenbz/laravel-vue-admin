@@ -22,6 +22,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "moment": "^2.22.2",
         "vform": "^1.0.0",
         "vue-router": "^3.0.1"
     }
