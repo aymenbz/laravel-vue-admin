@@ -53,8 +53,8 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                 <form @submit.prevent="createUser" @keydown="form.onKeydown($event)">
                 <div class="modal-body">
-                    <form @submit.prevent="login" @keydown="form.onKeydown($event)">
                         <div class="form-group">
                         <input v-model="form.name" type="text" name="name" placeholder="Name"
                             class="form-control" :class="{ 'is-invalid': form.errors.has('name') }">
@@ -89,12 +89,13 @@
                        
 
                         <!-- <button :disabled="form.busy" type="submit" class="btn btn-primary">Log In</button> -->
-                    </form>
+                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-success">Save</button>
                 </div>
+                 </form>
                 </div>
             </div>
             </div>
@@ -113,6 +114,11 @@
                     bio: '',
                     photo: ''
                 })
+            }
+        },
+        methods: {
+            createUser() {
+                this.form.post('api/user')
             }
         }
     }
