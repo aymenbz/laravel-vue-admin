@@ -76,6 +76,29 @@
             </router-link>
             
           </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Managment
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <router-link to="/users" class="nav-link">
+                  <i class="fa fa-users nav-icon"></i>
+                  <p>Users</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <a href="pages/tables/data.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Data Tables</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <router-link to="/profile" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
@@ -90,7 +113,7 @@
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                           <i class="nav-icon fa fa-power-off"></i>
-             {{ __('Logout') }}
+            <p> {{ __('Logout') }} </p>
          </a>
 
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
