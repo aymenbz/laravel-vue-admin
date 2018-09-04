@@ -133,11 +133,11 @@
   <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
-
+    <div class="container-fluid">
       <!-- Default box -->
       <router-view></router-view>
       <!-- /.card -->
-
+</div>
     </section>
     <!-- /.content -->
   </div>
