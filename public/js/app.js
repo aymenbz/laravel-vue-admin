@@ -51270,9 +51270,6 @@ var render = function() {
                     submit: function($event) {
                       $event.preventDefault()
                       return _vm.createUser($event)
-                    },
-                    keydown: function($event) {
-                      _vm.form.onKeydown($event)
                     }
                   }
                 },
@@ -51627,8 +51624,8 @@ var staticRenderFns = [
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-success", attrs: { type: "button" } },
-        [_vm._v("Save")]
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Create")]
       )
     ])
   }

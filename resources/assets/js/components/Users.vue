@@ -53,7 +53,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                 <form @submit.prevent="createUser" @keydown="form.onKeydown($event)">
+                 <form @submit.prevent="createUser">
                 <div class="modal-body">
                         <div class="form-group">
                         <input v-model="form.name" type="text" name="name" placeholder="Name"
@@ -93,7 +93,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success">Create</button>
                 </div>
                  </form>
                 </div>
