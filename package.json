@@ -19,6 +19,7 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
+        "sweetalert2": "^7.26.14",
         "vue": "^2.5.7",
         "vue-progressbar": "^0.7.5"
     },
