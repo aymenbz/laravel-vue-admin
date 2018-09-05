@@ -125,19 +125,33 @@
             createUser() {
                 this.$Progress.start()
                 this.form.post('api/user')
-                
+                .then((data) => {
+                Fire.$emit('AfterCreate', data)
                 $("#addNew").modal('hide');
                 toast({
                 type: 'success',
                 title: 'User Created successfully'
                 })
-               
                 this.$Progress.finish()
+                })
+                .catch(() => {
+                toast({
+                type: 'error',
+                title: 'Error Creating User'
+                })
+                this.$Progress.fail()
+                })
+               
+                
             }
         },
         created() {
             this.loadUsers();
-            setInterval(() => {this.loadUsers()}, 3000)
+            Fire.$on('AfterCreate',() => {
+                this.loadUsers();
+                
+            })
+            //setInterval(() => {this.loadUsers()}, 3000)
         }
     }
 </script>

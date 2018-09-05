@@ -43,6 +43,11 @@ Vue.use(VueProgressBar, options)
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
+
+
+
+
+
 Vue.use(VueRouter)
 
 let routes = [
@@ -64,7 +69,7 @@ let routes = [
     return moment(created).format("MMM Do YY");
   })
 
-
+  window.Fire = new Vue();
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
