@@ -31,8 +31,8 @@
                             <i class="fa fa-edit"></i>
                         </a>
                         /
-                        <a href="#"> 
-                            <i class="fa fa-trash"></i>
+                        <a href="#" @click="deleteUser(user.id)"> 
+                            <i class="fa fa-trash text-danger" ></i>
                         </a>
                     </td>
                   </tr>
@@ -104,54 +104,77 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                users: [],
-                form: new Form({
-                    name: '',
-                    email:'',
-                    password: '',
-                    type: '',
-                    bio: '',
-                    photo: ''
-                })
-            }
-        },
-        methods: {
-            loadUsers() {
-                axios.get('api/user').then(({data}) => {this.users = data.data})
-            },
-            createUser() {
-                this.$Progress.start()
-                this.form.post('api/user')
-                .then((data) => {
-                Fire.$emit('AfterCreate', data)
-                $("#addNew").modal('hide');
-                toast({
-                type: 'success',
-                title: 'User Created successfully'
-                })
-                this.$Progress.finish()
-                })
-                .catch(() => {
-                toast({
-                type: 'error',
-                title: 'Error Creating User'
-                })
-                this.$Progress.fail()
-                })
-               
-                
-            }
-        },
-        created() {
-            this.loadUsers();
-            Fire.$on('AfterCreate',() => {
-                this.loadUsers();
-                
-            })
-            //setInterval(() => {this.loadUsers()}, 3000)
+export default {
+  data() {
+    return {
+      users: [],
+      form: new Form({
+        name: "",
+        email: "",
+        password: "",
+        type: "",
+        bio: "",
+        photo: ""
+      })
+    };
+  },
+  methods: {
+    loadUsers() {
+      axios.get("api/user").then(({ data }) => {
+        this.users = data.data;
+      });
+    },
+    createUser() {
+      this.$Progress.start();
+      this.form
+        .post("api/user")
+        .then(data => {
+          Fire.$emit("AfterCreate", data);
+          $("#addNew").modal("hide");
+          toast({
+            type: "success",
+            title: "User Created successfully"
+          });
+          this.$Progress.finish();
+        })
+        .catch(() => {
+          toast({
+            type: "error",
+            title: "Error Creating User"
+          });
+          this.$Progress.fail();
+        });
+    },
+    deleteUser(id) {
+      swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
+
+        // Send Request To The User
+        this.form.delete('api/user/'+id).then((data) => {
+        if (result.value) {
+          swal("Deleted!", "Your file has been deleted.", "success");
+          Fire.$emit("AfterCreate", data);
         }
+        }).catch(() => {
+            swal("Failed!", "There was something wrong.", "warning");
+        })
+        
+      });
     }
+  },
+  created() {
+    this.loadUsers();
+    Fire.$on("AfterCreate", () => {
+      this.loadUsers();
+    });
+    //setInterval(() => {this.loadUsers()}, 3000)
+  }
+};
 </script>

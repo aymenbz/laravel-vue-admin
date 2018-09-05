@@ -71458,59 +71458,84 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            users: [],
-            form: new Form({
-                name: '',
-                email: '',
-                password: '',
-                type: '',
-                bio: '',
-                photo: ''
-            })
-        };
+  data: function data() {
+    return {
+      users: [],
+      form: new Form({
+        name: "",
+        email: "",
+        password: "",
+        type: "",
+        bio: "",
+        photo: ""
+      })
+    };
+  },
+
+  methods: {
+    loadUsers: function loadUsers() {
+      var _this = this;
+
+      axios.get("api/user").then(function (_ref) {
+        var data = _ref.data;
+
+        _this.users = data.data;
+      });
     },
+    createUser: function createUser() {
+      var _this2 = this;
 
-    methods: {
-        loadUsers: function loadUsers() {
-            var _this = this;
-
-            axios.get('api/user').then(function (_ref) {
-                var data = _ref.data;
-                _this.users = data.data;
-            });
-        },
-        createUser: function createUser() {
-            var _this2 = this;
-
-            this.$Progress.start();
-            this.form.post('api/user').then(function (data) {
-                Fire.$emit('AfterCreate', data);
-                $("#addNew").modal('hide');
-                toast({
-                    type: 'success',
-                    title: 'User Created successfully'
-                });
-                _this2.$Progress.finish();
-            }).catch(function () {
-                toast({
-                    type: 'error',
-                    title: 'Error Creating User'
-                });
-                _this2.$Progress.fail();
-            });
-        }
-    },
-    created: function created() {
-        var _this3 = this;
-
-        this.loadUsers();
-        Fire.$on('AfterCreate', function () {
-            _this3.loadUsers();
+      this.$Progress.start();
+      this.form.post("api/user").then(function (data) {
+        Fire.$emit("AfterCreate", data);
+        $("#addNew").modal("hide");
+        toast({
+          type: "success",
+          title: "User Created successfully"
         });
-        //setInterval(() => {this.loadUsers()}, 3000)
+        _this2.$Progress.finish();
+      }).catch(function () {
+        toast({
+          type: "error",
+          title: "Error Creating User"
+        });
+        _this2.$Progress.fail();
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      var _this3 = this;
+
+      swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+
+        // Send Request To The User
+        _this3.form.delete('api/user/' + id).then(function (data) {
+          if (result.value) {
+            swal("Deleted!", "Your file has been deleted.", "success");
+            Fire.$emit("AfterCreate", data);
+          }
+        }).catch(function () {
+          swal("Failed!", "There was something wrong.", "warning");
+        });
+      });
     }
+  },
+  created: function created() {
+    var _this4 = this;
+
+    this.loadUsers();
+    Fire.$on("AfterCreate", function () {
+      _this4.loadUsers();
+    });
+    //setInterval(() => {this.loadUsers()}, 3000)
+  }
 });
 
 /***/ }),
@@ -71547,7 +71572,22 @@ var render = function() {
                       _vm._v(_vm._s(_vm._f("myDate")(user.created_at)))
                     ]),
                     _vm._v(" "),
-                    _vm._m(2, true)
+                    _c("td", [
+                      _vm._m(2, true),
+                      _vm._v("\n                  /\n                  "),
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteUser(user.id)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash text-danger" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -71873,14 +71913,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-edit" })
-      ]),
-      _vm._v("\n                  /\n                  "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-trash" })
-      ])
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fa fa-edit" })
     ])
   },
   function() {
