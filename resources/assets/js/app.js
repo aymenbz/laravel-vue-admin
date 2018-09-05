@@ -12,6 +12,23 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router'
 import { Form, HasError, AlertError } from 'vform'
 import moment from 'moment'
+import VueProgressBar from 'vue-progressbar'
+const options = {
+  color: '#bffaf3',
+  failedColor: '#874b4b',
+  thickness: '5px',
+  transition: {
+    speed: '0.2s',
+    opacity: '0.6s',
+    termination: 300
+  },
+  autoRevert: true,
+  location: 'top',
+  inverse: false
+}
+
+Vue.use(VueProgressBar, options)
+
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
@@ -25,15 +42,15 @@ let routes = [
 
   const router = new VueRouter({
       mode: 'history',
-    routes // short for `routes: routes`
+      routes // short for `routes: routes`
   })
 
   Vue.filter('upTxt', function(text) {
     return text.charAt(0).toUpperCase() + text.slice(1)
   })
 
-  Vue.filter('myDate', function(cretaed) {
-    return moment(cretaed).format("MMM Do YY");
+  Vue.filter('myDate', function(created) {
+    return moment(created).format("MMM Do YY");
   })
 
 
