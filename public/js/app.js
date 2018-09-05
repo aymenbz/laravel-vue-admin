@@ -67905,16 +67905,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         createUser: function createUser() {
             this.$Progress.start();
             this.form.post('api/user');
+
             $("#addNew").modal('hide');
             toast({
                 type: 'success',
                 title: 'User Created successfully'
             });
+
             this.$Progress.finish();
         }
     },
     created: function created() {
+        var _this2 = this;
+
         this.loadUsers();
+        setInterval(function () {
+            _this2.loadUsers();
+        }, 3000);
     }
 });
 
