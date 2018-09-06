@@ -71465,6 +71465,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       editMode: false,
       users: [],
       form: new Form({
+        id: "",
         name: "",
         email: "",
         password: "",
@@ -71540,14 +71541,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
       });
     },
-    updateUser: function updateUser() {}
+    updateUser: function updateUser() {
+      var _this4 = this;
+
+      this.$Progress.start();
+      this.form.put('api/user/' + this.form.id).then(function (data) {
+        $("#addNew").modal("hide");
+        swal("Updated!", "User been Updated.", "success");
+        Fire.$emit("AfterCreate", data);
+        _this4.$Progress.finish();
+      }).catch(function () {
+        _this4.$Progress.fail();
+      });
+    }
   },
   created: function created() {
-    var _this4 = this;
+    var _this5 = this;
 
     this.loadUsers();
     Fire.$on("AfterCreate", function () {
-      _this4.loadUsers();
+      _this5.loadUsers();
     });
     //setInterval(() => {this.loadUsers()}, 3000)
   }
