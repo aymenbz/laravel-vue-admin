@@ -112,6 +112,7 @@ export default {
       editMode: false,
       users: [],
       form: new Form({
+        id: "",
         name: "",
         email: "",
         password: "",
@@ -183,7 +184,17 @@ export default {
       });
     },
     updateUser() {
-
+      this.$Progress.start();
+      this.form.put('api/user/'+this.form.id)
+      .then((data) => {
+        $("#addNew").modal("hide");
+         swal("Updated!", "User been Updated.", "success");
+         Fire.$emit("AfterCreate", data);
+         this.$Progress.finish();
+      })
+      .catch(() => {
+      this.$Progress.fail();
+      })
     }
   },
   created() {
