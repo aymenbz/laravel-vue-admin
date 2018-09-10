@@ -8,6 +8,11 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
