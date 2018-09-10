@@ -72114,6 +72114,114 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -72137,17 +72245,261 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Profile Component")
+      _c("div", { staticClass: "row mt-4" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "card card-widget widget-user" }, [
+            _c(
+              "div",
+              {
+                staticClass: "widget-user-header text-white",
+                staticStyle: {
+                  background: "url('/img/user_cover.png') center center"
+                }
+              },
+              [
+                _c("h3", { staticClass: "widget-user-username" }, [
+                  _vm._v("Elizabeth Pierce")
+                ]),
+                _vm._v(" "),
+                _c("h5", { staticClass: "widget-user-desc" }, [
+                  _vm._v("Web Designer")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "widget-user-image" }, [
+              _c("img", {
+                staticClass: "img-circle",
+                attrs: { src: "/img/man.svg", alt: "User Avatar" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-footer" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-4 border-right" }, [
+                  _c("div", { staticClass: "description-block" }, [
+                    _c("h5", { staticClass: "description-header" }, [
+                      _vm._v("3,200")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "description-text" }, [
+                      _vm._v("SALES")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-4 border-right" }, [
+                  _c("div", { staticClass: "description-block" }, [
+                    _c("h5", { staticClass: "description-header" }, [
+                      _vm._v("13,000")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "description-text" }, [
+                      _vm._v("FOLLOWERS")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "description-block" }, [
+                    _c("h5", { staticClass: "description-header" }, [
+                      _vm._v("35")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "description-text" }, [
+                      _vm._v("PRODUCTS")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header p-2" }, [
+              _c("ul", { staticClass: "nav nav-pills" }, [
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link active show",
+                      attrs: { href: "#activity", "data-toggle": "tab" }
+                    },
+                    [_vm._v("Activity")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: "#settings", "data-toggle": "tab" }
+                    },
+                    [_vm._v("Settings")]
+                  )
+                ])
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
+              _c("div", { staticClass: "tab-content" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane active show",
+                    attrs: { id: "activity" }
+                  },
+                  [_c("h2", [_vm._v("User Activity")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tab-pane", attrs: { id: "settings" } },
+                  [
+                    _c("form", { staticClass: "form-horizontal" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 control-label",
+                            attrs: { for: "inputName" }
+                          },
+                          [_vm._v("Name")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "email",
+                              id: "inputName",
+                              placeholder: "Name"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 control-label",
+                            attrs: { for: "inputEmail" }
+                          },
+                          [_vm._v("Email")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "email",
+                              id: "inputEmail",
+                              placeholder: "Email"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 control-label",
+                            attrs: { for: "inputExperience" }
+                          },
+                          [_vm._v("Experience")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("textarea", {
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "inputExperience",
+                              placeholder: "Experience"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 control-label",
+                            attrs: { for: "inputProfile" }
+                          },
+                          [_vm._v("Profile Photo")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            attrs: { type: "file", id: "inputProfile" }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-4 control-label",
+                            attrs: { for: "inputPaspport" }
+                          },
+                          [_vm._v("Passport (leave empty if not changing)")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "inputPaspport",
+                              placeholder: "Passport"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-offset-2 col-sm-10" },
+                          [
+                            _c("div", { staticClass: "checkbox" }, [
+                              _c("label", [
+                                _c("input", { attrs: { type: "checkbox" } }),
+                                _vm._v(" I agree to the "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("terms and conditions")
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-offset-2 col-sm-10" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger",
+                                attrs: { type: "submit" }
+                              },
+                              [_vm._v("Submit")]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ])
             ])
           ])
         ])
