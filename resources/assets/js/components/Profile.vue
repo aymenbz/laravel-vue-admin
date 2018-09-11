@@ -86,7 +86,7 @@
                         <label for="inputProfile" class="col-sm-2 control-label">Profile Photo</label>
 
                         <div class="col-sm-10">
-                          <input type="file" id="inputProfile">
+                          <input type="file" @change="updateProfile" id="inputProfile">
                         </div>
                       </div>
                       <div class="form-group">
@@ -137,9 +137,22 @@
                     })
             }
         },
+        methods: {
+          updateProfile(e) {
+            let file = e.target.files[0];
+              var reader = new FileReader();
+              reader.onloadend = (file) => {
+                this.form.photo = reader.result;
+              }
+              reader.readAsDataURL(file);
+
+            
+          }
+        },
         mounted() {
             console.log('Component mounted.')
         },
+
 
         created() {
             axios.get('/api/profile').then(({data}) => this.form.fill(data))
