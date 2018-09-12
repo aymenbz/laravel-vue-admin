@@ -57,6 +57,19 @@ class UserController extends Controller
     {
         return auth('api')->user();
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateProfile(Request $request)
+    {
+        $user = auth('api')->user();
+        return $request->photo;
+        // return ['message' => "sucess"];
+    }
 
     /**
      * Update the specified resource in storage.
