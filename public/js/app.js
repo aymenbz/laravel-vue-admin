@@ -72222,6 +72222,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -72234,7 +72236,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         type: "",
         bio: "",
         photo: ""
-      })
+      }),
+      error: ''
     };
   },
 
@@ -72250,18 +72253,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       reader.readAsDataURL(file);
     },
     updateInfo: function updateInfo() {
-      this.form.put('api/profile').then(function () {}).catch(function () {});
+      var _this2 = this;
+
+      this.form.put('api/profile').then(function () {
+        _this2.error = '';
+      }).catch(function (error) {
+        _this2.error = error.response.data.message;
+      });
     }
   },
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios.get('/api/profile').then(function (_ref) {
       var data = _ref.data;
-      return _this2.form.fill(data);
+      return _this3.form.fill(data);
     });
   }
 });
@@ -72421,7 +72430,16 @@ var render = function() {
                         _c("input", {
                           attrs: { type: "file", id: "inputProfile" },
                           on: { change: _vm.updateProfile }
-                        })
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "small",
+                          {
+                            staticClass: "text-danger",
+                            staticStyle: { display: "inherit" }
+                          },
+                          [_vm._v(" " + _vm._s(this.error) + " ")]
+                        )
                       ])
                     ]),
                     _vm._v(" "),

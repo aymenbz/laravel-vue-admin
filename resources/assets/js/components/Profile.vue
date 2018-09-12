@@ -87,7 +87,9 @@
 
                         <div class="col-sm-10">
                           <input type="file" @change="updateProfile" id="inputProfile">
+                          <small class="text-danger" style="display: inherit;"> {{this.error}} </small>
                         </div>
+                        
                       </div>
                       <div class="form-group">
                         <label for="inputPaspport" class="col-sm-4 control-label">Passport (leave empty if not changing)</label>
@@ -134,7 +136,8 @@
                         type: "",
                         bio: "",
                         photo: ""
-                    })
+                    }),
+                    error: ''
             }
         },
         methods: {
@@ -151,9 +154,10 @@
           updateInfo() {
             this.form.put('api/profile')
             .then(() => {
-
+              this.error = ''
             })
-            .catch(() => {
+            .catch((error) => {
+             this.error = error.response.data.message
               
             })
           },
