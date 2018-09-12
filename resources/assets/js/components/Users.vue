@@ -172,15 +172,15 @@ export default {
       }).then(result => {
 
         // Send Request To The User
-        this.form.delete('api/user/'+id).then((data) => {
         if (result.value) {
+        this.form.delete('api/user/'+id).then((data) => {
           swal("Deleted!", "Your file has been deleted.", "success");
           Fire.$emit("AfterCreate", data);
-        }
+        
         }).catch(() => {
             swal("Failed!", "There was something wrong.", "warning");
         })
-        
+        }
       });
     },
     updateUser() {

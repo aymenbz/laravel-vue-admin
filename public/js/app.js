@@ -71531,14 +71531,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (result) {
 
         // Send Request To The User
-        _this3.form.delete('api/user/' + id).then(function (data) {
-          if (result.value) {
+        if (result.value) {
+          _this3.form.delete('api/user/' + id).then(function (data) {
             swal("Deleted!", "Your file has been deleted.", "success");
             Fire.$emit("AfterCreate", data);
-          }
-        }).catch(function () {
-          swal("Failed!", "There was something wrong.", "warning");
-        });
+          }).catch(function () {
+            swal("Failed!", "There was something wrong.", "warning");
+          });
+        }
       });
     },
     updateUser: function updateUser() {
