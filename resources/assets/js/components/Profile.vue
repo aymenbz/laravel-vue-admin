@@ -144,14 +144,23 @@
           updateProfile(e) {
             let file = e.target.files[0];
               var reader = new FileReader();
-              reader.onloadend = (file) => {
+              if(file['size'] < 2111775) {
+               reader.onloadend = (file) => {
                 this.form.photo = reader.result;
               }
               reader.readAsDataURL(file);
 
+              } else {
+                swal({
+                  type: 'error',
+                  title: 'Ooops...',
+                  text: 'You are uploading a large file'
+                })
+              }
             
           },
           updateInfo() {
+            this.$Progress.start();
             this.form.put('api/profile')
             .then(() => {
               this.error = ''
