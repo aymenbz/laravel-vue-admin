@@ -163,11 +163,11 @@
             this.$Progress.start();
             this.form.put('api/profile')
             .then(() => {
-              this.error = ''
+             
+              this.$Progress.finish();
             })
             .catch((error) => {
-             this.error = error.response.data.message
-              
+              this.$Progress.fail();
             })
           },
         },

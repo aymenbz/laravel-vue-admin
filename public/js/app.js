@@ -72265,9 +72265,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       this.$Progress.start();
       this.form.put('api/profile').then(function () {
-        _this2.error = '';
+
+        _this2.$Progress.finish();
       }).catch(function (error) {
-        _this2.error = error.response.data.message;
+        _this2.$Progress.fail();
       });
     }
   },
