@@ -13,7 +13,7 @@
         "@fortawesome/fontawesome-free": "^5.3.1",
         "admin-lte": "3.0.0-alpha.2",
         "axios": "^0.18.0",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.3.1",
         "cross-env": "^5.1",
         "jquery": ">=3.4.0",
         "laravel-mix": "^2.0",
